@@ -1,0 +1,28 @@
+<h1> This is the placeholder recipe</h1>
+
+<div class="col-md-4">
+	<%= form_tag  recipes_path, :method =>'get' do %>
+	<%= text_field_tag :search, params[:search]  %>
+	<%= submit_tag "Search" %>
+	<% end %>
+</div>
+
+<%= link_to 'New Recipe' , new_recipe_path, class: 'btn btn-default' %><br><br>
+
+<ul>
+	<% @recipes.each do |recipe| %>
+	<div class="col-md-4">
+		<div class="recipe"> 
+			<div class="image_wrapper">
+
+				<%= image_tag recipe.image.url( :medium) %><br/><br/>
+				<%= link_to recipe.title, recipe %><br/><br/>
+
+			</div>
+		</div>
+	</div>
+
+	<% end %>
+</ul>
+
+
